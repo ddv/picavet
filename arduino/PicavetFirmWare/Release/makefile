@@ -68,7 +68,7 @@ all: PicavetFirmWare.elf secondary-outputs
 PicavetFirmWare.elf: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: AVR C++ Linker'
-	avr-gcc -Os -Wl,--gc-sections  -L"C:\Users\derenok_dv\workspace.arduino\Arduino_Uno/Release" -mmcu=atmega328p  -o"PicavetFirmWare.elf" $(OBJS) $(USER_OBJS) $(LIBS) -lm
+	avr-gcc -Os -Wl,--gc-sections  -L"/home/ddv/workspace-arduino/Arduino_Uno/Release" -mmcu=atmega328p  -o"PicavetFirmWare.elf" $(OBJS) $(USER_OBJS) $(LIBS) -lm
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -92,13 +92,13 @@ PicavetFirmWare.eep: PicavetFirmWare.elf
 
 sizedummy: PicavetFirmWare.elf
 	@echo 'Invoking: Print Size'
-	-avr-size --format=avr --mcu=atmega328p PicavetFirmWare.elf
+	-avr-size --format=berkeley -t PicavetFirmWare.elf
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) $(OBJS)$(C_DEPS)$(EEPROM_IMAGE)$(FLASH_IMAGE)$(ELFS)$(LSS)$(S_DEPS)$(CXX_DEPS)$(S_UPPER_DEPS)$(C++_DEPS)$(ASM_DEPS)$(CC_DEPS)$(CPP_DEPS)$(C_UPPER_DEPS)$(SIZEDUMMY) PicavetFirmWare.elf
+	-$(RM) $(OBJS)$(C_DEPS)$(EEPROM_IMAGE)$(ELFS)$(FLASH_IMAGE)$(LSS)$(S_DEPS)$(CXX_DEPS)$(S_UPPER_DEPS)$(C++_DEPS)$(ASM_DEPS)$(CC_DEPS)$(CPP_DEPS)$(C_UPPER_DEPS)$(SIZEDUMMY) PicavetFirmWare.elf
 	-@echo ' '
 
 secondary-outputs: $(LSS) $(FLASH_IMAGE) $(EEPROM_IMAGE) $(SIZEDUMMY)
