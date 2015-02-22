@@ -1,35 +1,34 @@
 // Do not remove the include below
 #include "PicavetFirmWare.h"
+//http://www.gammon.com.au/forum/?id=11063
+//#include <Regexp.h>
+//http://forum.biicode.com/t/eclipse-unresolved-inclusion-arduino-h/195/6
+//extern HardwareSerial Serial;
 #include <Adafruit_CC3000.h>
 #include <SPI.h>
 #include "utility/debug.h"
 #include "utility/socket.h"
-#include <string.h>
-extern HardwareSerial Serial;
+//#include <MemoryFree.h>
 
-// These are the interrupt and control pins
-#define ADAFRUIT_CC3000_IRQ   3  // MUST be an interrupt pin!
-// These can be any two pins
+// инициализация WI-FI шилда
+#define ADAFRUIT_CC3000_IRQ   3
 #define ADAFRUIT_CC3000_VBAT  5
 #define ADAFRUIT_CC3000_CS    10
-// Use hardware SPI for the remaining pins
-// On an UNO, SCK = 13, MISO = 12, and MOSI = 11
 
 Adafruit_CC3000 cc3000 = Adafruit_CC3000(ADAFRUIT_CC3000_CS, ADAFRUIT_CC3000_IRQ, ADAFRUIT_CC3000_VBAT,
                                          SPI_CLOCK_DIVIDER); // you can change this clock speed
 
-#define WLAN_SSID       "JY-G5"   // cannot be longer than 32 characters!
-#define WLAN_PASS       "1234567890"
-// Security can be WLAN_SEC_UNSEC, WLAN_SEC_WEP, WLAN_SEC_WPA or WLAN_SEC_WPA2
+#define WLAN_SSID "JY-G5"           // cannot be longer than 32 characters!
 #define WLAN_SECURITY   WLAN_SEC_WPA2
+#define WLAN_PASS "1234567890" // Security can be WLAN_SEC_UNSEC, WLAN_SEC_WEP, WLAN_SEC_WPA or WLAN_SEC_WPA2
+#define LISTEN_PORT           80//23    // What TCP port to listen on for connections.
 
-#define LISTEN_PORT           80      // What TCP port to listen on for connections.
-                                      // The HTTP protocol uses port 80 by default.
+
 
 #define MAX_ACTION            10      // Maximum length of the HTTP action that can be parsed.
 
 #define MAX_PATH              64      // Maximum length of the HTTP request path that can be parsed.
-                                      // There isn't much memory available so keep this short!
+ // There isn't much memory available so keep this short!
 
 #define BUFFER_SIZE           MAX_ACTION + MAX_PATH + 20  // Size of buffer for incoming request data.
                                                           // Since only the first line is parsed this
@@ -47,37 +46,11 @@ int bufindex = 0;
 char action[MAX_ACTION+1];
 char path[MAX_PATH+1];
 
-const char* HTTP_RESPONCE_HEADER_OK[] = {
-	"HTTP/1.1 200 OK\n",
-	"Content-Type: text/html\n",
-	"Connection: close\n",
-	"\n"
-};
-
-const char* HTTP_TEST_FORM[] = {
-	"<!DOCTYPE HTML>\n",
-	"<html>\n",
-	"<h1>TEST</h1>\n",
-	"<form>",
-	"<input type=text name='cmd' value='moveleft'>\n",
-	"<input type=text name='time' value='2000'>\n",
-	"<input type='submit' value='Send data...'>\n",
-	"</form>"
-};
 
 void setup(void)
 {
   Serial.begin(115200);
   Serial.println(F("Hello, CC3000!\n"));
-
-	Serial.println(String(path));
-	Serial.print("SIZE OF HTTP_RESPONCE_HEADER_OK=");
-	Serial.println(sizeof(HTTP_RESPONCE_HEADER_OK));
-
-	Serial.println(String(path));
-		Serial.print("SIZE OF HTTP_TEST_FORM=");
-		Serial.println(sizeof(HTTP_TEST_FORM));
-
 
   Serial.print("Free RAM: "); Serial.println(getFreeRam(), DEC);
 
@@ -161,48 +134,17 @@ void loop(void)
       if (strcmp(action, "GET") == 0) {
         // Respond with the path that was accessed.
         // First send the success response code.
-
-
-
-//    	  client.fastrprintln(F("HTTP/1.1 200 OK"));
-//    	  client.fastrprintln(F("Content-Type: text/html"));
-//    	  client.fastrprintln(F("Connection: close")); // the connection will be closed after completion of the response
-//    	  client.println();
-
-				for (int i = 0; i < sizeof(HTTP_RESPONCE_HEADER_OK) / 2; i++) {
-					client.fastrprint(HTTP_RESPONCE_HEADER_OK[i]);
-				}
-
-				for (int i = 0; i < sizeof(HTTP_TEST_FORM) / 2; i++) {
-					client.fastrprint(HTTP_TEST_FORM[i]);
-				}
-
-//    	  client.fastrprintln(F("<!DOCTYPE HTML>"));
-//    	  client.fastrprintln(F("<html>"));
-//
-//    	  client.fastrprintln(F("<h1>TEST</h1>"));
-//    	  client.fastrprintln(F("<form>"));
-//    	  client.fastrprintln(F("<input type=text name='cmd' value='moveleft'>"));
-//    	  client.fastrprintln(F("<input type=text name='time' value='1000'>"));
-//    	  client.fastrprintln(F("<input type='submit' value='Send data...'>"));
-//    	  client.fastrprintln(F("</form>"));
-		client.fastrprint(F("You accessed path: "));
-			client.fastrprintln(path);
-			client.fastrprintln(F("</html>"));
-
-			Serial.print(F(">>>PATH:"));
-			if(String(path).startsWith("/?cmd=moveleft&time=")) {
-				String p = String(path);
-				String val = p.substring(20);
-				int val_int = val.toInt();
-				Serial.print(F(">>>CMD VAL=["));
-				Serial.print(val_int);
-				Serial.println(F("]"));
-			}
-
-			//strto
-
-
+        client.fastrprintln(F("HTTP/1.1 200 OK"));
+        // Then send a few headers to identify the type of data returned and that
+        // the connection will not be held open.
+        client.fastrprintln(F("Content-Type: text/plain"));
+        client.fastrprintln(F("Connection: close"));
+        client.fastrprintln(F("Server: Adafruit CC3000"));
+        // Send an empty line to signal start of body.
+        client.fastrprintln(F(""));
+        // Now send the response data.
+        client.fastrprintln(F("Hello world!"));
+        client.fastrprint(F("You accessed path: ")); client.fastrprintln(path);
       }
       else {
         // Unsupported action, respond with an HTTP 405 method not allowed error.
@@ -215,11 +157,8 @@ void loop(void)
     // the connection is closed (the CC3000 sends data asyncronously).
     delay(100);
 
-    Serial.print("Free RAM: "); Serial.println(getFreeRam(), DEC);
-
     // Close the connection when done.
     Serial.println(F("Client disconnected"));
-
     client.close();
   }
 }
@@ -247,7 +186,7 @@ bool parseRequest(uint8_t* buf, int bufSize, char* action, char* path) {
 
 // Parse the action and path from the first line of an HTTP request.
 void parseFirstLine(char* line, char* action, char* path) {
-  // Parse first word up to whitespace as action.bool displayConnectionDetails(void)
+  // Parse first word up to whitespace as action.
   char* lineaction = strtok(line, " ");
   if (lineaction != NULL)
     strncpy(action, lineaction, MAX_ACTION);
@@ -278,12 +217,6 @@ bool displayConnectionDetails(void)
     return true;
   }
 }
-
-
-
-
-
-
 //void setup() {
 //	Serial.begin(115200);
 //
