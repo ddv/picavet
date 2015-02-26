@@ -16,8 +16,14 @@ extern "C" {
 #endif
 void loop();
 void setup();
-void ParseRequestStr(String);
+bool parseRequest(uint8_t* buf, int bufSize, char* action, char* path);
+void parseFirstLine(char* line, char* action, char* path);
 bool displayConnectionDetails(void);
+int runHttpCommand(char http_path[]);
+//void ParseRequestStr(String);
+//bool displayConnectionDetails(void);
+//void parseFirstLine(char* line, char* action, char* path);
+//bool parseRequest(uint8_t* buf, int bufSize, char* action, char* path) {
 
 #ifdef __cplusplus
 } // extern "C"

@@ -44,70 +44,70 @@ CPP_DEPS += \
 Adafruit_CC3000/utility/cc3000_common.o: E:/arduino/arduino-1.0.5-r2-windows/libraries/Adafruit_CC3000/utility/cc3000_common.cpp
 	@echo 'Building file: $<'
 	@echo 'Invoking: AVR C++ Compiler'
-	avr-g++ -I"E:\arduino\arduino-1.0.5-r2-windows\hardware\arduino\cores\arduino" -I"E:\arduino\arduino-1.0.5-r2-windows\hardware\arduino\variants\standard" -I"C:\Users\derenok_dv\workspace.arduino\PicavetFirmWare" -I"E:\arduino\arduino-1.0.5-r2-windows\libraries\Regexp" -I"E:\arduino\arduino-1.0.5-r2-windows\libraries\Adafruit_CC3000" -I"E:\arduino\arduino-1.0.5-r2-windows\libraries\SPI" -D__IN_ECLIPSE__=1 -DUSB_VID= -DUSB_PID= -DARDUINO=105-r2 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)"  -c -o "$@" -x c++ "$<"
+	avr-g++ -I"E:\arduino\arduino-1.0.5-r2-windows\hardware\arduino\cores\arduino" -I"E:\arduino\arduino-1.0.5-r2-windows\hardware\arduino\variants\standard" -I"C:\Users\derenok_dv\git\picavet\arduino\PicavetFirmWare" -I"E:\arduino\arduino-1.0.5-r2-windows\libraries\Regexp" -I"E:\arduino\arduino-1.0.5-r2-windows\libraries\Adafruit_CC3000" -I"E:\arduino\arduino-1.0.5-r2-windows\libraries\SPI" -D__IN_ECLIPSE__=1 -DUSB_VID= -DUSB_PID= -DARDUINO=105-r2 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)"  -c -o "$@" -x c++ "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 
 Adafruit_CC3000/utility/debug.o: E:/arduino/arduino-1.0.5-r2-windows/libraries/Adafruit_CC3000/utility/debug.cpp
 	@echo 'Building file: $<'
 	@echo 'Invoking: AVR C++ Compiler'
-	avr-g++ -I"E:\arduino\arduino-1.0.5-r2-windows\hardware\arduino\cores\arduino" -I"E:\arduino\arduino-1.0.5-r2-windows\hardware\arduino\variants\standard" -I"C:\Users\derenok_dv\workspace.arduino\PicavetFirmWare" -I"E:\arduino\arduino-1.0.5-r2-windows\libraries\Regexp" -I"E:\arduino\arduino-1.0.5-r2-windows\libraries\Adafruit_CC3000" -I"E:\arduino\arduino-1.0.5-r2-windows\libraries\SPI" -D__IN_ECLIPSE__=1 -DUSB_VID= -DUSB_PID= -DARDUINO=105-r2 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)"  -c -o "$@" -x c++ "$<"
+	avr-g++ -I"E:\arduino\arduino-1.0.5-r2-windows\hardware\arduino\cores\arduino" -I"E:\arduino\arduino-1.0.5-r2-windows\hardware\arduino\variants\standard" -I"C:\Users\derenok_dv\git\picavet\arduino\PicavetFirmWare" -I"E:\arduino\arduino-1.0.5-r2-windows\libraries\Regexp" -I"E:\arduino\arduino-1.0.5-r2-windows\libraries\Adafruit_CC3000" -I"E:\arduino\arduino-1.0.5-r2-windows\libraries\SPI" -D__IN_ECLIPSE__=1 -DUSB_VID= -DUSB_PID= -DARDUINO=105-r2 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)"  -c -o "$@" -x c++ "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 
 Adafruit_CC3000/utility/evnt_handler.o: E:/arduino/arduino-1.0.5-r2-windows/libraries/Adafruit_CC3000/utility/evnt_handler.cpp
 	@echo 'Building file: $<'
 	@echo 'Invoking: AVR C++ Compiler'
-	avr-g++ -I"E:\arduino\arduino-1.0.5-r2-windows\hardware\arduino\cores\arduino" -I"E:\arduino\arduino-1.0.5-r2-windows\hardware\arduino\variants\standard" -I"C:\Users\derenok_dv\workspace.arduino\PicavetFirmWare" -I"E:\arduino\arduino-1.0.5-r2-windows\libraries\Regexp" -I"E:\arduino\arduino-1.0.5-r2-windows\libraries\Adafruit_CC3000" -I"E:\arduino\arduino-1.0.5-r2-windows\libraries\SPI" -D__IN_ECLIPSE__=1 -DUSB_VID= -DUSB_PID= -DARDUINO=105-r2 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)"  -c -o "$@" -x c++ "$<"
+	avr-g++ -I"E:\arduino\arduino-1.0.5-r2-windows\hardware\arduino\cores\arduino" -I"E:\arduino\arduino-1.0.5-r2-windows\hardware\arduino\variants\standard" -I"C:\Users\derenok_dv\git\picavet\arduino\PicavetFirmWare" -I"E:\arduino\arduino-1.0.5-r2-windows\libraries\Regexp" -I"E:\arduino\arduino-1.0.5-r2-windows\libraries\Adafruit_CC3000" -I"E:\arduino\arduino-1.0.5-r2-windows\libraries\SPI" -D__IN_ECLIPSE__=1 -DUSB_VID= -DUSB_PID= -DARDUINO=105-r2 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)"  -c -o "$@" -x c++ "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 
 Adafruit_CC3000/utility/hci.o: E:/arduino/arduino-1.0.5-r2-windows/libraries/Adafruit_CC3000/utility/hci.cpp
 	@echo 'Building file: $<'
 	@echo 'Invoking: AVR C++ Compiler'
-	avr-g++ -I"E:\arduino\arduino-1.0.5-r2-windows\hardware\arduino\cores\arduino" -I"E:\arduino\arduino-1.0.5-r2-windows\hardware\arduino\variants\standard" -I"C:\Users\derenok_dv\workspace.arduino\PicavetFirmWare" -I"E:\arduino\arduino-1.0.5-r2-windows\libraries\Regexp" -I"E:\arduino\arduino-1.0.5-r2-windows\libraries\Adafruit_CC3000" -I"E:\arduino\arduino-1.0.5-r2-windows\libraries\SPI" -D__IN_ECLIPSE__=1 -DUSB_VID= -DUSB_PID= -DARDUINO=105-r2 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)"  -c -o "$@" -x c++ "$<"
+	avr-g++ -I"E:\arduino\arduino-1.0.5-r2-windows\hardware\arduino\cores\arduino" -I"E:\arduino\arduino-1.0.5-r2-windows\hardware\arduino\variants\standard" -I"C:\Users\derenok_dv\git\picavet\arduino\PicavetFirmWare" -I"E:\arduino\arduino-1.0.5-r2-windows\libraries\Regexp" -I"E:\arduino\arduino-1.0.5-r2-windows\libraries\Adafruit_CC3000" -I"E:\arduino\arduino-1.0.5-r2-windows\libraries\SPI" -D__IN_ECLIPSE__=1 -DUSB_VID= -DUSB_PID= -DARDUINO=105-r2 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)"  -c -o "$@" -x c++ "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 
 Adafruit_CC3000/utility/netapp.o: E:/arduino/arduino-1.0.5-r2-windows/libraries/Adafruit_CC3000/utility/netapp.cpp
 	@echo 'Building file: $<'
 	@echo 'Invoking: AVR C++ Compiler'
-	avr-g++ -I"E:\arduino\arduino-1.0.5-r2-windows\hardware\arduino\cores\arduino" -I"E:\arduino\arduino-1.0.5-r2-windows\hardware\arduino\variants\standard" -I"C:\Users\derenok_dv\workspace.arduino\PicavetFirmWare" -I"E:\arduino\arduino-1.0.5-r2-windows\libraries\Regexp" -I"E:\arduino\arduino-1.0.5-r2-windows\libraries\Adafruit_CC3000" -I"E:\arduino\arduino-1.0.5-r2-windows\libraries\SPI" -D__IN_ECLIPSE__=1 -DUSB_VID= -DUSB_PID= -DARDUINO=105-r2 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)"  -c -o "$@" -x c++ "$<"
+	avr-g++ -I"E:\arduino\arduino-1.0.5-r2-windows\hardware\arduino\cores\arduino" -I"E:\arduino\arduino-1.0.5-r2-windows\hardware\arduino\variants\standard" -I"C:\Users\derenok_dv\git\picavet\arduino\PicavetFirmWare" -I"E:\arduino\arduino-1.0.5-r2-windows\libraries\Regexp" -I"E:\arduino\arduino-1.0.5-r2-windows\libraries\Adafruit_CC3000" -I"E:\arduino\arduino-1.0.5-r2-windows\libraries\SPI" -D__IN_ECLIPSE__=1 -DUSB_VID= -DUSB_PID= -DARDUINO=105-r2 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)"  -c -o "$@" -x c++ "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 
 Adafruit_CC3000/utility/nvmem.o: E:/arduino/arduino-1.0.5-r2-windows/libraries/Adafruit_CC3000/utility/nvmem.cpp
 	@echo 'Building file: $<'
 	@echo 'Invoking: AVR C++ Compiler'
-	avr-g++ -I"E:\arduino\arduino-1.0.5-r2-windows\hardware\arduino\cores\arduino" -I"E:\arduino\arduino-1.0.5-r2-windows\hardware\arduino\variants\standard" -I"C:\Users\derenok_dv\workspace.arduino\PicavetFirmWare" -I"E:\arduino\arduino-1.0.5-r2-windows\libraries\Regexp" -I"E:\arduino\arduino-1.0.5-r2-windows\libraries\Adafruit_CC3000" -I"E:\arduino\arduino-1.0.5-r2-windows\libraries\SPI" -D__IN_ECLIPSE__=1 -DUSB_VID= -DUSB_PID= -DARDUINO=105-r2 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)"  -c -o "$@" -x c++ "$<"
+	avr-g++ -I"E:\arduino\arduino-1.0.5-r2-windows\hardware\arduino\cores\arduino" -I"E:\arduino\arduino-1.0.5-r2-windows\hardware\arduino\variants\standard" -I"C:\Users\derenok_dv\git\picavet\arduino\PicavetFirmWare" -I"E:\arduino\arduino-1.0.5-r2-windows\libraries\Regexp" -I"E:\arduino\arduino-1.0.5-r2-windows\libraries\Adafruit_CC3000" -I"E:\arduino\arduino-1.0.5-r2-windows\libraries\SPI" -D__IN_ECLIPSE__=1 -DUSB_VID= -DUSB_PID= -DARDUINO=105-r2 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)"  -c -o "$@" -x c++ "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 
 Adafruit_CC3000/utility/security.o: E:/arduino/arduino-1.0.5-r2-windows/libraries/Adafruit_CC3000/utility/security.cpp
 	@echo 'Building file: $<'
 	@echo 'Invoking: AVR C++ Compiler'
-	avr-g++ -I"E:\arduino\arduino-1.0.5-r2-windows\hardware\arduino\cores\arduino" -I"E:\arduino\arduino-1.0.5-r2-windows\hardware\arduino\variants\standard" -I"C:\Users\derenok_dv\workspace.arduino\PicavetFirmWare" -I"E:\arduino\arduino-1.0.5-r2-windows\libraries\Regexp" -I"E:\arduino\arduino-1.0.5-r2-windows\libraries\Adafruit_CC3000" -I"E:\arduino\arduino-1.0.5-r2-windows\libraries\SPI" -D__IN_ECLIPSE__=1 -DUSB_VID= -DUSB_PID= -DARDUINO=105-r2 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)"  -c -o "$@" -x c++ "$<"
+	avr-g++ -I"E:\arduino\arduino-1.0.5-r2-windows\hardware\arduino\cores\arduino" -I"E:\arduino\arduino-1.0.5-r2-windows\hardware\arduino\variants\standard" -I"C:\Users\derenok_dv\git\picavet\arduino\PicavetFirmWare" -I"E:\arduino\arduino-1.0.5-r2-windows\libraries\Regexp" -I"E:\arduino\arduino-1.0.5-r2-windows\libraries\Adafruit_CC3000" -I"E:\arduino\arduino-1.0.5-r2-windows\libraries\SPI" -D__IN_ECLIPSE__=1 -DUSB_VID= -DUSB_PID= -DARDUINO=105-r2 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)"  -c -o "$@" -x c++ "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 
 Adafruit_CC3000/utility/sntp.o: E:/arduino/arduino-1.0.5-r2-windows/libraries/Adafruit_CC3000/utility/sntp.cpp
 	@echo 'Building file: $<'
 	@echo 'Invoking: AVR C++ Compiler'
-	avr-g++ -I"E:\arduino\arduino-1.0.5-r2-windows\hardware\arduino\cores\arduino" -I"E:\arduino\arduino-1.0.5-r2-windows\hardware\arduino\variants\standard" -I"C:\Users\derenok_dv\workspace.arduino\PicavetFirmWare" -I"E:\arduino\arduino-1.0.5-r2-windows\libraries\Regexp" -I"E:\arduino\arduino-1.0.5-r2-windows\libraries\Adafruit_CC3000" -I"E:\arduino\arduino-1.0.5-r2-windows\libraries\SPI" -D__IN_ECLIPSE__=1 -DUSB_VID= -DUSB_PID= -DARDUINO=105-r2 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)"  -c -o "$@" -x c++ "$<"
+	avr-g++ -I"E:\arduino\arduino-1.0.5-r2-windows\hardware\arduino\cores\arduino" -I"E:\arduino\arduino-1.0.5-r2-windows\hardware\arduino\variants\standard" -I"C:\Users\derenok_dv\git\picavet\arduino\PicavetFirmWare" -I"E:\arduino\arduino-1.0.5-r2-windows\libraries\Regexp" -I"E:\arduino\arduino-1.0.5-r2-windows\libraries\Adafruit_CC3000" -I"E:\arduino\arduino-1.0.5-r2-windows\libraries\SPI" -D__IN_ECLIPSE__=1 -DUSB_VID= -DUSB_PID= -DARDUINO=105-r2 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)"  -c -o "$@" -x c++ "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 
 Adafruit_CC3000/utility/socket.o: E:/arduino/arduino-1.0.5-r2-windows/libraries/Adafruit_CC3000/utility/socket.cpp
 	@echo 'Building file: $<'
 	@echo 'Invoking: AVR C++ Compiler'
-	avr-g++ -I"E:\arduino\arduino-1.0.5-r2-windows\hardware\arduino\cores\arduino" -I"E:\arduino\arduino-1.0.5-r2-windows\hardware\arduino\variants\standard" -I"C:\Users\derenok_dv\workspace.arduino\PicavetFirmWare" -I"E:\arduino\arduino-1.0.5-r2-windows\libraries\Regexp" -I"E:\arduino\arduino-1.0.5-r2-windows\libraries\Adafruit_CC3000" -I"E:\arduino\arduino-1.0.5-r2-windows\libraries\SPI" -D__IN_ECLIPSE__=1 -DUSB_VID= -DUSB_PID= -DARDUINO=105-r2 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)"  -c -o "$@" -x c++ "$<"
+	avr-g++ -I"E:\arduino\arduino-1.0.5-r2-windows\hardware\arduino\cores\arduino" -I"E:\arduino\arduino-1.0.5-r2-windows\hardware\arduino\variants\standard" -I"C:\Users\derenok_dv\git\picavet\arduino\PicavetFirmWare" -I"E:\arduino\arduino-1.0.5-r2-windows\libraries\Regexp" -I"E:\arduino\arduino-1.0.5-r2-windows\libraries\Adafruit_CC3000" -I"E:\arduino\arduino-1.0.5-r2-windows\libraries\SPI" -D__IN_ECLIPSE__=1 -DUSB_VID= -DUSB_PID= -DARDUINO=105-r2 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)"  -c -o "$@" -x c++ "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 
 Adafruit_CC3000/utility/wlan.o: E:/arduino/arduino-1.0.5-r2-windows/libraries/Adafruit_CC3000/utility/wlan.cpp
 	@echo 'Building file: $<'
 	@echo 'Invoking: AVR C++ Compiler'
-	avr-g++ -I"E:\arduino\arduino-1.0.5-r2-windows\hardware\arduino\cores\arduino" -I"E:\arduino\arduino-1.0.5-r2-windows\hardware\arduino\variants\standard" -I"C:\Users\derenok_dv\workspace.arduino\PicavetFirmWare" -I"E:\arduino\arduino-1.0.5-r2-windows\libraries\Regexp" -I"E:\arduino\arduino-1.0.5-r2-windows\libraries\Adafruit_CC3000" -I"E:\arduino\arduino-1.0.5-r2-windows\libraries\SPI" -D__IN_ECLIPSE__=1 -DUSB_VID= -DUSB_PID= -DARDUINO=105-r2 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)"  -c -o "$@" -x c++ "$<"
+	avr-g++ -I"E:\arduino\arduino-1.0.5-r2-windows\hardware\arduino\cores\arduino" -I"E:\arduino\arduino-1.0.5-r2-windows\hardware\arduino\variants\standard" -I"C:\Users\derenok_dv\git\picavet\arduino\PicavetFirmWare" -I"E:\arduino\arduino-1.0.5-r2-windows\libraries\Regexp" -I"E:\arduino\arduino-1.0.5-r2-windows\libraries\Adafruit_CC3000" -I"E:\arduino\arduino-1.0.5-r2-windows\libraries\SPI" -D__IN_ECLIPSE__=1 -DUSB_VID= -DUSB_PID= -DARDUINO=105-r2 -Wall -Os -ffunction-sections -fdata-sections -fno-exceptions -g -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)"  -c -o "$@" -x c++ "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 
