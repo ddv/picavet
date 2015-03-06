@@ -2,6 +2,7 @@
 #include "PicavetFirmWare.h"
 #include <Adafruit_CC3000.h>
 #include <SPI.h>
+#include <Servo.h>
 #include "utility/debug.h"
 #include "utility/socket.h"
 #include <string.h>
@@ -53,7 +54,7 @@ int bufindex = 0;
 char action[MAX_ACTION+1];
 char path[MAX_PATH+1];
 
-// Заголовок http-ответа
+// Заголовок http-ответа text/html
 const char HTTP_RESPONCE_HEADER_OK_0[] PROGMEM = "HTTP/1.1 200 OK\n";
 const char HTTP_RESPONCE_HEADER_OK_1[] PROGMEM = "Content-Type: text/html\n";
 const char HTTP_RESPONCE_HEADER_OK_2[] PROGMEM = "Connection: close\n\n";
@@ -64,7 +65,18 @@ const char* PROGMEM HTTP_RESPONCE_HEADER_OK[] PROGMEM = {
 	HTTP_RESPONCE_HEADER_OK_2
 };
 
-// HTML Форма для тетсирования команд
+// Заголовок http-ответа (text/plain)
+const char HTTP_RESPONCE_HEADER_PLAIN_OK_0[] PROGMEM = "HTTP/1.1 200 OK\n";
+const char HTTP_RESPONCE_HEADER_PLAIN_OK_1[] PROGMEM = "Content-Type: text/plain\n";
+const char HTTP_RESPONCE_HEADER_PLAIN_OK_2[] PROGMEM = "Connection: close\n\n";
+
+const char* PROGMEM HTTP_RESPONCE_HEADER_PLAIN_OK[] PROGMEM = {
+	HTTP_RESPONCE_HEADER_PLAIN_OK_0,
+	HTTP_RESPONCE_HEADER_PLAIN_OK_1,
+	HTTP_RESPONCE_HEADER_PLAIN_OK_2
+};
+
+// HTML Форма для тестирования команд
 const char HTTP_TEST_FORM_0[] PROGMEM = "<!DOCTYPE HTML>\n";
 const char HTTP_TEST_FORM_1[] PROGMEM = "<html>\n";
 const char HTTP_TEST_FORM_2[] PROGMEM = "<h1>TEST</h1>\n";
@@ -133,11 +145,75 @@ const char CMD_MOVE_RIGHT[] PROGMEM = "moveright";
 const char CMD_MOVE_UP[] PROGMEM = "moveup";
 const char CMD_MOVE_DOWN[] PROGMEM = "movedown";
 
+#define SERVO_VERTICAL_PIN 12
+#define SERVO_HORIZONTAL_PIN 9
+#define SERVO_VERTICAL_NULL_POS 90
+// Пин определения центрального положения подвеса
+#define SERVO_FRONT_IRQ_PIN 7
+
+Servo myservoH;
+Servo myservoV;
 
 void setup(void)
 {
 	Serial.begin(115200);
 	Serial.println(F("Picavet WiFi CC3000"));
+
+	//myservoV.attach(SERVO_VERTICAL_PIN);
+	//myservoH.attach(SERVO_HORIZONTAL_PIN);
+
+	return;
+//
+//	myservo.attach(SERVO_VERTICAL_PIN); // attaches the servo on pin 9 to the servo object
+//	Serial.print(F("Servo [V] POS 90"));
+//	myservo.write(90);
+//
+//	delay(1000);
+//	Serial.print(F(" POS 0"));
+//	myservo.write(0);
+//	delay(1000);
+//
+//	delay(1000);
+//	Serial.println(F(" POS 180"));
+//	myservo.write(180);
+//	delay(1000);
+//
+//	myservo.detach();
+//
+//	//
+//
+//	myservo.attach(SERVO_HORIZONTAL_PIN); // attaches the servo on pin 9 to the servo object
+//	Serial.print(F("Servo [H]"));
+//
+//	int i = 50;
+//	Serial.print(F("["));
+//	Serial.print(i);
+//	Serial.print(F("]"));
+//
+//	delay(1000);
+//
+//	i = 120;
+//	Serial.print(F("["));
+//	Serial.print(i);
+//	Serial.print(F("]"));
+//
+//	delay(1000);
+//
+//	myservo.detach();
+
+//	for (int i = -360; i <= 360; i+=50) {
+//
+//		Serial.print(F("["));
+//		Serial.print(i);
+//		Serial.print(F("]"));
+//		myservo.write(i);
+//
+//		delay(1000);
+//
+//	}
+//	myservo.detach();
+
+	//return;
 
 //	for (unsigned int i = 0; i < sizeof(HTTP_RESPONCE_HEADER_OK) / 2; i++) {
 //			strcpy_P(path, (char*) pgm_read_word(&(HTTP_RESPONCE_HEADER_OK[i]))); // Necessary casts and dereferencing, just copy.
@@ -151,30 +227,36 @@ void setup(void)
 
 	int action = false;
 
-	char s1[] = "/?cmd=moveleft&degree=-160";
+	char s1[] = "/?cmd=moveleft&degree=90";
 	action = runHttpCommand(s1);
 	Serial.print(F("ACTION="));
 	Serial.println(action);
 
-	char s2[] = "/?cmd=moveright&degree=-60";
+	delay(2000);
+
+	char s2[] = "/?cmd=moveright&degree=120";
 	action = runHttpCommand(s2);
 	Serial.print(F("ACTION="));
 	Serial.println(action);
 
-	char s3[] = "/?cmd=moveup&degree=-30";
-	action = runHttpCommand(s3);
-	Serial.print(F("ACTION="));
-	Serial.println(action);
+	delay(2000);
 
-	char s4[] = "/?cmd=movedown&degree=-45";
-	action = runHttpCommand(s4);
-	Serial.print(F("ACTION="));
-	Serial.println(action);
+	return;
 
-	char s5[] = "/?cmd=center";
-	action = runHttpCommand(s5);
-	Serial.print(F("ACTION="));
-	Serial.println(action);
+//	char s3[] = "/?cmd=moveup&degree=-30";
+//	action = runHttpCommand(s3);
+//	Serial.print(F("ACTION="));
+//	Serial.println(action);
+//
+//	char s4[] = "/?cmd=movedown&degree=-45";
+//	action = runHttpCommand(s4);
+//	Serial.print(F("ACTION="));
+//	Serial.println(action);
+//
+//	char s5[] = "/?cmd=center";
+//	action = runHttpCommand(s5);
+//	Serial.print(F("ACTION="));
+//	Serial.println(action);
 
 
 
@@ -262,6 +344,17 @@ void setup(void)
 
 void loop(void)
 {
+
+	char s1[] = "/?cmd=moveleft&degree=90";
+	int a = runHttpCommand(s1);
+	Serial.print(F("ACTION="));
+	Serial.println(a);
+
+	delay(2000);
+
+	while(true) {}
+
+
   // Try to get a client which is connected.
   Adafruit_CC3000_ClientRef client = httpServer.available();
   if (client) {
@@ -382,12 +475,22 @@ int runHttpCommand(char http_path[]) {
 
 
 	if (strcmp_P(cmd, CMD_MOVE_LEFT) == 0) {
-		Serial.println(F("!!! MOVE LEFT !!!!"));
+		Serial.print(F("!!! MOVE LEFT !!!! angle="));
+		myservoH.attach(SERVO_HORIZONTAL_PIN);
+		myservoH.write(value);
+		Serial.println(myservoH.read());
+		delay(1000);
+		myservoH.write(SERVO_VERTICAL_NULL_POS);
+		myservoH.detach();
 		return 0;
 	}
 
 	if (strcmp_P(cmd, CMD_MOVE_RIGHT) == 0) {
-		Serial.println(F("!!! MOVE RIGHT !!!!"));
+		Serial.print(F("!!! MOVE RIGHT !!!! angle="));
+		myservoH.write(value);
+		Serial.println(myservoH.read());
+		delay(1000);
+		myservoH.write(SERVO_VERTICAL_NULL_POS);
 		return 0;
 	}
 

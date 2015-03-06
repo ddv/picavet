@@ -18,16 +18,22 @@
 							<targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.ELF" id="it.baeyens.arduino.targetplatform.994757239" name="Arduino Target" osList="all" superClass="it.baeyens.arduino.targetplatform"/>
 							<builder buildPath="${workspace_loc:/PicavetFirmWare}/Release" id="it.baeyens.arduino.sketch.builder.1219320883" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="Arduino sketch builder" superClass="it.baeyens.arduino.sketch.builder"/>
 							<tool id="it.baeyens.arduino.tool.sketch.compiler.cpp.2007391022" name="Arduino C++ Compiler" superClass="it.baeyens.arduino.tool.sketch.compiler.cpp">
-								<option id="it.baeyens.arduino.compiler.cpp.sketch.option.incpath.293867999" superClass="it.baeyens.arduino.compiler.cpp.sketch.option.incpath" valueType="includePath">
+								<option id="it.baeyens.arduino.compiler.cpp.sketch.option.incpath.293867999" name="Include Paths (-I)" superClass="it.baeyens.arduino.compiler.cpp.sketch.option.incpath" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/PicavetFirmWare/arduino/core}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/PicavetFirmWare/arduino/variant}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/PicavetFirmWare/Libraries/Adafruit_CC3000}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/PicavetFirmWare/Libraries/Adafruit_CC3000/utility}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/PicavetFirmWare/Libraries/SPI}&quot;"/>
 								</option>
 								<inputType id="it.baeyens.arduino.compiler.cpp.sketch.input.109485614" name="CPP source files" superClass="it.baeyens.arduino.compiler.cpp.sketch.input"/>
 							</tool>
 							<tool id="it.baeyens.arduino.tool.compiler.c.1351355644" name="Arduino C Compiler" superClass="it.baeyens.arduino.tool.compiler.c">
-								<option id="it.baeyens.arduino.compiler.c.sketch.option.incpath.1131516789" superClass="it.baeyens.arduino.compiler.c.sketch.option.incpath" valueType="includePath">
+								<option id="it.baeyens.arduino.compiler.c.sketch.option.incpath.1131516789" name="Include Paths (-I)" superClass="it.baeyens.arduino.compiler.c.sketch.option.incpath" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/PicavetFirmWare/arduino/core}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/PicavetFirmWare/arduino/variant}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/PicavetFirmWare/Libraries/Adafruit_CC3000}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/PicavetFirmWare/Libraries/Adafruit_CC3000/utility}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/PicavetFirmWare/Libraries/SPI}&quot;"/>
 								</option>
 								<inputType id="it.baeyens.arduino.compiler.c.sketch.input.1914621444" name="C Source Files" superClass="it.baeyens.arduino.compiler.c.sketch.input"/>
 							</tool>
