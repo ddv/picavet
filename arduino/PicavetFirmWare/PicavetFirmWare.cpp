@@ -162,6 +162,12 @@ void setup(void)
 	//myservoV.attach(SERVO_VERTICAL_PIN);
 	//myservoH.attach(SERVO_HORIZONTAL_PIN);
 
+	pinMode(SERVO_HORIZONTAL_PIN, OUTPUT);
+	digitalWrite(SERVO_HORIZONTAL_PIN, LOW);
+
+
+
+
 	return;
 //
 //	myservo.attach(SERVO_VERTICAL_PIN); // attaches the servo on pin 9 to the servo object
@@ -342,17 +348,175 @@ void setup(void)
   Serial.println(F("Listening for connections..."));
 }
 
+
+//Медленное движение влево
+void move_left_slow(int time) {
+
+	Serial.print(F("move_left_slow..."));
+	int speed = 2550;
+	for (int i = 0; i < (time * 200); i++) {
+		digitalWrite(SERVO_HORIZONTAL_PIN, HIGH);
+		delayMicroseconds(speed);
+		digitalWrite(SERVO_HORIZONTAL_PIN, LOW);
+		delay(20);
+	}
+	Serial.println(F("[ok]"));
+}
+
+// движение по горизонту
+// мощность (-100..+100)
+// time - время работы (милисек)
+void move_horizontal(int power, int time) {
+
+	int p=2630+(power*2);
+	float t=time/1000;
+
+	Serial.print(F("move power="));
+	Serial.print(p);
+	Serial.print(F(", time=	"));
+	Serial.println(t);
+
+	digitalWrite(SERVO_HORIZONTAL_PIN, LOW);
+
+
+
+	for (int i = 0; i < (t * 100); i++) {
+		digitalWrite(SERVO_HORIZONTAL_PIN, HIGH);
+		delayMicroseconds(p);
+		digitalWrite(SERVO_HORIZONTAL_PIN, LOW);
+		//delay(10);
+		delayMicroseconds(10000-p);
+	}
+	digitalWrite(SERVO_HORIZONTAL_PIN, LOW);
+	delay(1000);
+	Serial.println(F("[ok]"));
+
+}
+
 void loop(void)
 {
+
+//	return;
+//
+//
+//	myservoH.attach(SERVO_HORIZONTAL_PIN);
+//	for(int i=0;i<8000;i+=300) {
+//		myservoH.writeMicroseconds(i);
+//		myservoH.write(i);
+//		Serial.println(i);
+//		delay(1000);
+//	}
+//	return;
+
+
+//	for(int i=0;i<100;i++) {
+//			Serial.println(i);
+//			analogWrite(SERVO_HORIZONTAL_PIN,i);
+//			delay(100);
+//	}
+
+//	for(int i=200;i<255;i++) {
+//		Serial.println(i);
+//		analogWrite(SERVO_HORIZONTAL_PIN,i);
+//		delay(100);
+//	}
+
+	digitalWrite(SERVO_HORIZONTAL_PIN, LOW);
+
+
+	unsigned long int time;
+
+	for (int i = 0; i < 5; i++) {
+
+		time = millis();
+
+		// Минимальное стабильное по часовой = 120
+		// analogWrite(SERVO_HORIZONTAL_PIN, 120);
+
+		analogWrite(SERVO_HORIZONTAL_PIN, 120);
+		delay(100);
+		digitalWrite(SERVO_HORIZONTAL_PIN, LOW);
+
+
+		Serial.print(F("working L "));
+		Serial.println(millis()-time);
+
+		digitalWrite(SERVO_HORIZONTAL_PIN, LOW);
+		delay(1000);
+
+
+//		digitalWrite(SERVO_HORIZONTAL_PIN, LOW);
+//		delay(500);
+
+//		time = millis();
+//
+//		analogWrite(SERVO_HORIZONTAL_PIN, 130);
+//		delay(2000);
+//
+//		Serial.print(F("working R "));
+//		Serial.println(millis()-time);
+//
+//		digitalWrite(SERVO_HORIZONTAL_PIN, LOW);
+//		delay(500);
+	}
+
+	return;
+
+
+//	for(;;){
+//		delay(1000);
+//	}
+
+//	move_horizontal(-100,1000);
+//	move_horizontal(-50,1000);
+//	move_horizontal(-20,1000);
+//	move_horizontal(0,1000);
+//	move_horizontal(20,1000);
+//	move_horizontal(100,1000);
+
+//	move_horizontal(2430,1);
+//	move_horizontal(2530,1);
+//	move_horizontal(2630,1);
+//	move_horizontal(2730,1);
+//	move_horizontal(2830,1);
+
+	//move_right_slow(2610,1);
+
+
+
+	// 2750 против час. быстро
+	// 2720 против час. медленно
+	// 2710 против час. оч. медленно
+	// 2650 против час. ну оч. медленно
+	// 2630 - среднее
+	// 2600 по час. ну оч.медленно
+	// 2500 по час. оч.медленно
+	// 2500 по час. медленно
+	// 2400 по час. быстро
+
+	int speed = 2650; //2630 - среднее
+
+
+	digitalWrite(SERVO_HORIZONTAL_PIN, HIGH);
+	delayMicroseconds(speed);
+	digitalWrite(SERVO_HORIZONTAL_PIN, LOW);
+	delay(10);
+
+
+
+
+	//TODO
+	return;
 
 	char s1[] = "/?cmd=moveleft&degree=90";
 	int a = runHttpCommand(s1);
 	Serial.print(F("ACTION="));
 	Serial.println(a);
 
-	delay(2000);
 
-	while(true) {}
+	//TODO
+	return;
+	//while(true) {}
 
 
   // Try to get a client which is connected.
@@ -476,12 +640,20 @@ int runHttpCommand(char http_path[]) {
 
 	if (strcmp_P(cmd, CMD_MOVE_LEFT) == 0) {
 		Serial.print(F("!!! MOVE LEFT !!!! angle="));
-		myservoH.attach(SERVO_HORIZONTAL_PIN);
-		myservoH.write(value);
+
+		//myservoH.attach(SERVO_HORIZONTAL_PIN);
+		if(value==90) {
+			myservoH.write(90);
+		}
 		Serial.println(myservoH.read());
-		delay(1000);
-		myservoH.write(SERVO_VERTICAL_NULL_POS);
-		myservoH.detach();
+		Serial.println(F("working..."));
+		delay(500);
+		Serial.println(F("stop"));
+		myservoH.write(90);
+		//myservoH.detach();
+
+		Serial.println(F("sleep..."));
+		delay(5000);
 		return 0;
 	}
 
