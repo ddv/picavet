@@ -1,0 +1,31 @@
+<meta name="viewport" content="width=device-width">
+
+<script>
+
+function deleteName(f) {
+
+     document.getElementById('btn1').disabled = true;
+     f.submit();
+     
+     /*
+    alert(document.getElementById('btn1'));
+    if (confirm("Delete?")) 
+       f.submit();
+       */
+
+}
+   
+</script>
+
+<style type="text/css">
+   body { 
+    /*font-size: 300%;*/
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    color: #336; 
+   }
+</style>
+
+<form onsubmit="deleteName(this);return false;">
+<input type="text" value="aaaaaa">
+<input type="submit" id="btn1" name="submitBth" value="send!">
+</form>
